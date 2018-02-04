@@ -4,18 +4,24 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.view.InternalResourceView;
 
 import spittr.Spittle;
+import spittr.config.DataConfig;
 import spittr.data.SpittleRepository;
 import spittr.web.SpittleController;
 
+import javax.sql.DataSource;
+@ContextConfiguration(classes = DataConfig.class)
 public class SpittleControllerTest {
 
     @Test
@@ -54,6 +60,14 @@ public class SpittleControllerTest {
                 .andExpect(model().attributeExists("spittleList"))
                 .andExpect(model().attribute("spittleList",
                         hasItems(expectedSpittles.toArray())));
+    }
+
+    @Autowired
+    public DataSource dataSource;
+
+    @Test
+    public void testRef() {
+        System.out.println(dataSource.toString());
     }
 
     @Test

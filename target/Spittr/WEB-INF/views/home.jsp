@@ -14,6 +14,6 @@
 <body>
 <h1>WelCom To Spittr</h1>
 <a href="<c:url value="/spittles" />">Spittles</a>
-<a href="<c:url value="/spitter/register" />">Register</a>
+<a href="<c:url value="/spitter" />">Register</a>
 </body>
 </html>

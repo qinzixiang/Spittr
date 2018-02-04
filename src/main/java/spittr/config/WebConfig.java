@@ -25,6 +25,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
+        resolver.setContentType("text/html;charset=utf-8");
         return resolver;
     }
 

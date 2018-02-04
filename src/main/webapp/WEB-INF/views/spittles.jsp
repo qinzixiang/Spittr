@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <!-- 使用c标签需要引入jstl的jar包，本项目使用maven引入javax.servlet的jstl包 -->
+<%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
@@ -17,8 +18,8 @@
 </head>
 <body>
 <ul>
-<c:forEach items="${list}" var="spittle">
-    <li id="spittle_<c:out value="spittle.id"/>">
+<c:forEach items="${spittleList}" var="spittle">
+    <li id="spittle_<c:out value="${spittle.id}"/>">
         <div class="spittleMessage">
             <c:out value="${spittle.message}"/>
         </div>

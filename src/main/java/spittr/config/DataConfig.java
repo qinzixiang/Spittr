@@ -15,8 +15,9 @@ public class DataConfig {
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("./spittr/data/table.sql")
-                .addScript("./spittr/data/data.sql")
+                .setScriptEncoding("utf-8")
+                .addScript("classpath:sqlData/table.sql")
+                .addScript("classpath:sqlData/data.sql")
                 .build();
     }
 
